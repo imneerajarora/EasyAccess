@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +26,7 @@ SECRET_KEY = 'django-insecure-zg)bf0s1&148vqs-=^qc1$%vt4$vqhdub-$%*x%0#z0m-(773+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS =  ['easyaccess-pand.onrender.com']
+ALLOWED_HOSTS =  ['*']
 
 
 # Application definition
@@ -168,3 +167,5 @@ USE_TZ = True  # Ensure this is set to True for timezone-aware datetimes
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
