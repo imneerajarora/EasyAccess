@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os 
-from django.contrib.auth import get_user_model
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -170,11 +168,4 @@ USE_TZ = True  # Ensure this is set to True for timezone-aware datetimes
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-if os.environ.get('DJANGO_SUPERUSER_USERNAME') and os.environ.get('DJANGO_SUPERUSER_PASSWORD'):
-    User = get_user_model()
-    if not User.objects.filter(username=os.environ['DJANGO_SUPERUSER_USERNAME']).exists():
-        User.objects.create_superuser(
-            os.environ['DJANGO_SUPERUSER_USERNAME'],
-            os.environ.get('DJANGO_SUPERUSER_EMAIL', ''),
-            os.environ['DJANGO_SUPERUSER_PASSWORD']
-        )
+
