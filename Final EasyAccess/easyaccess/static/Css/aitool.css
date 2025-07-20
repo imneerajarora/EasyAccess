@@ -1,0 +1,41 @@
+    .card-hover{
+        transition:  transform 0.3s, box-shadow 0.3s;;
+    }
+    .card-hover:hover{
+        transform: scale(1.05); 
+        box-shadow: 0 4px 8px 0 aqua;
+        z-index: 10; 
+
+    }
+    @media (max-width: 768px) {
+        .card , .card-hover{
+            margin: auto;
+            width: auto;
+            height: 27rem;
+        }
+
+    }
+    @media (min-width: 768px){
+        .card , .card-hover{
+            width: 20rem;
+            height: 25rem;
+        }
+    }
+    /* Hide pagination on screens larger than 768px (e.g., laptops or desktops) */
+    @media (min-width: 768px) {
+    .pagination-container {
+        display: none;
+    }
+}
+
+/* Show pagination on smaller screens (e.g., mobile devices) */
+   @media (max-width: 768px) {
+    .pagination-container {
+        display: flex;
+    }
+}
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1rem; /* Add spacing between rows */
+    }
+}

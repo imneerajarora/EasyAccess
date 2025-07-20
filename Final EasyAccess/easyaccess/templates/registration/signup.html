@@ -1,0 +1,50 @@
+{% extends "basic.html" %}
+{% load static %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'Css/signuppg.css' %}">
+
+
+    <div class="container-fluid ps-4 d-flex justify-content-center mt-4">
+        <div class="card mt-4">
+        <h1 class="text-center">Register</h1>
+    <form method="post">
+        {% csrf_token %}
+            <div class="card-body">
+            <input type="text" class="form-control signup-control mb-3" name="username" placeholder="Username" aria-label="User Name" required>
+            <input type="email" name="email" class="form-control signup-control mb-3" placeholder="Email" aria-label="Email" required>
+            <input type="password" name="password1" class="form-control signup-control mb-3" placeholder="Password" aria-label="Password">
+          <input type="password" name="password2" class="form-control signup-control mb-3" placeholder="Confirm Password" aria-label="Confirm Password">
+        <div class="container-fluid d-flex justify-content-center mb-3">
+    <button class="btn-submit mt-4" type="submit">SignUp</button>
+</div>
+<div class="link-container d-flex justify-content-center mt-3">
+    <p class="fw-bold text-white">Already have an account?</p>
+    <a class="align-text-bottom mx-2 text-decoration-none" href="/login">login</a>
+    
+</div>
+</div>
+</form>
+</div>
+</div>
+{% if form.errors %}
+<div class="alert alert-danger mt-3">
+    <ul>
+        {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+        {% endfor %}
+        {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+                <li>{{ field|capfirst }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+{% endblock %}
+
+
+

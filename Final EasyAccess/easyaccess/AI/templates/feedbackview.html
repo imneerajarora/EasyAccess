@@ -1,0 +1,41 @@
+{% extends "basic.html" %}
+{% load static %}
+
+{% block title %}EasyAccess-Feedbacks{% endblock %}
+
+{% block content %}
+{% if feedback|length == 0 %}
+<div class="card mt-3">
+  <div class="card-body">
+    No feedback here.
+  </div>
+</div>
+{% else %}
+
+<div class="container my-5 text-white">
+  <h2 class="text-center mb-5">What Our Users Say</h2>
+    <div class="row">
+      {% for feed in feedback %}
+
+      <div class="col-md-4 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text feedback-short">{{feed.feedback_text|truncatechars:50}}</p>
+
+          
+            <h5 class="blockquote-footer text-dark mt-2">{{feed.user_name}}</h5>
+            <h5 class="blockquote-footer text-dark">{{feed.created_at}}</h5>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+      
+    </div>
+  </div>
+  {% endif %}
+
+  
+  
+
+{% endblock %}

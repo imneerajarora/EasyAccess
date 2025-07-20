@@ -1,0 +1,80 @@
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(26, 25, 25);
+        margin: 0;
+        padding: 0;
+
+
+        height: 100vh;
+    }
+
+    .otp-container {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+        margin-left: 35%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
+    .otp-container h2 {
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .otp-container p {
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .otp-form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .otp-input {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .btn-submit {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-submit:hover {
+        background-color: #45a049;
+    }
+
+    .messages {
+        margin-top: 20px;
+    }
+
+    .messages p {
+        font-size: 14px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .messages .error {
+        background-color: #ffcccc;
+        color: #cc0000;
+    }
+
+    .messages .success {
+        background-color: #d4edda;
+        color: #155724;
+    }

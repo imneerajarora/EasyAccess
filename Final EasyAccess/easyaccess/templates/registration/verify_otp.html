@@ -1,0 +1,27 @@
+{% extends "basic.html" %}
+
+{% block title %}Email Verification{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/otp.css' %}">
+
+<div class="otp-container">
+    <h2>Email Verification</h2>
+    <p>Please enter the OTP sent to your email to verify your account.</p>
+    
+    <form method="post" class="otp-form">
+        {% csrf_token %}
+        <input type="text" name="otp" placeholder="Enter OTP" required maxlength="6" class="otp-input">
+        <button type="submit" class="btn-submit">Verify</button>
+    </form>
+    
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p class="{{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+

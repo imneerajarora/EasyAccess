@@ -1,0 +1,155 @@
+{% extends "basic.html" %}
+{% load static %}
+
+{% block title %}
+Home - EasyAccess
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'Css/home.css' %}">
+
+<div class="hero-section">
+  
+  <h1>Welcome to EasyAccess</h1>
+  <p class="slider-text">Your gateway to powerful AI tools and resources.</p>
+  <a href="/register" class="btn btn-outline-info btn-lg">Get Started</a>
+</div>
+
+<div class="container my-5">
+  <div class="row gy-4">
+    <div class="col-lg-4 col-md-6">
+      <div class="card card-custom">
+        <div class="card-body text-center">
+          <h5 class="card-title">Explore AI Tools</h5>
+          <p class="card-text">Discover tools that simplify your workflow.</p>
+          <a href="/AITool" class="btn btn-outline-info">Explore Now</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <div class="card card-custom">
+        <div class="card-body text-center">
+          <h5 class="card-title">Read Documentation</h5>
+          <p class="card-text">Find guides and tutorials to get started.</p>
+          <a href="/Documentation" class="btn btn-outline-info">Read More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-12">
+      <div class="card card-custom">
+        <div class="card-body text-center">
+          <h5 class="card-title">Get in Touch</h5>
+          <p class="card-text">Have questions? Contact us today!</p>
+          <a href="/Contact" class="btn btn-outline-info">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="features-section">
+  <div class="container">
+    <h2 class="text-center mb-5">Why Choose EasyAccess?</h2>
+    <div class="row">
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-item">
+          <i class="bi bi-gear-wide-connected"></i>
+          <h3>AI-Powered Tools</h3>
+          <p>Utilize the latest AI tools to automate tasks and improve efficiency in your projects.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-item">
+          <i class="bi bi-file-earmark-code"></i>
+          <h3>Comprehensive Language Documentation</h3>
+          <p>Our detailed guides ensure that you can easily navigate through tools and learn their features.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="feature-item">
+          <i class="bi bi-chat-left-text"></i>
+          <h3>24/7 Support</h3>
+          <p>Our support team is here to assist you any time you need help with our tools or services.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonials Section -->
+{% if feed|length == 0 %}
+<p>No testiomonial found</p>
+{% else %}
+
+<div class="container my-5 text-white">
+  <h2 class="text-center mb-5">What Our Users Say</h2>
+  <div id="mycarousel" class="carousel slide" data-bs-ride="carousel"data-bs-interval="2500">
+    <div class="carousel-inner">
+      {% for data in feed %}
+      <div class="carousel-item {% if forloop.first %}active{% endif %}">
+        <div class="card text-center mx-auto" style="max-width: 600px;">
+          <div class="card-body">
+            <p class="card-text">{{ data.feedback_text|truncatechars:50 }}</p>
+            <footer class="blockquote-footer">{{ data.user_name }}</footer>
+            <footer class="blockquote-footer">{{ data.created_at }}</footer>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+      {% endif %}
+    
+
+
+ 
+  
+    <!-- Bootstrap Icons CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.js"></script>
+
+<!-- Call-to-Action Section -->
+<div class="text-center my-5 text-white">
+  <h2>Ready to take your projects to the next level?</h2>
+  <p class="lead">Sign up today and start using our AI-powered tools to simplify your tasks!</p>
+  <a href="/register" class="btn btn-lg btn-outline-info">Get Started</a>
+</div>
+<script>
+  // Automatically hide the message after 3 seconds
+  setTimeout(function() {
+      const alertContainer = document.getElementById('alert-container');
+      if (alertContainer) {
+          alertContainer.style.transition = 'opacity 0.5s';
+          alertContainer.style.opacity = '0';
+          setTimeout(() => alertContainer.remove(), 500); // Remove after fade-out
+      }
+  }, 3000);
+</script>
+{% endblock %}
+
+{% comment %} {% extends "basic.html" %}
+{% load static %}
+{% block title %}EasyAccess{% endblock %}
+
+{% block content %}
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{% static 'images-Ai/firstslide.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images-Ai/secondslide.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="{% static 'images-Ai/thirdslide.jpeg' %}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+{% endblock %} {% endcomment %}

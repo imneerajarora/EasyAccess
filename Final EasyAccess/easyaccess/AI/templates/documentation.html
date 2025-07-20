@@ -1,0 +1,127 @@
+{% extends "basic.html" %}
+
+{% load static %}
+
+{% block title %}Docs{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'Css/documentation.css' %}">
+<script src={% static 'Script/documentation.js' %}></script>
+<div class="container-fluid my-4">
+    <!-- Tab navigation -->
+    <div class="tab-container">
+        <div class="tab active" data-target="core-languages">Core Languages</div>
+        <div class="tab" data-target="frameworks">Frameworks</div>
+        <div class="tab" data-target="databases">Databases</div>
+        <div class="tab" data-target="developer-tools">Developer Tools</div>
+    </div>
+
+    <!-- Core Languages Content -->
+    <div id="core-languages" class="tab-content active">
+       
+        <hr style="color: white;">
+        <div class="row">
+            {% for doc in documents %}
+           {% if doc.category.name == "core languages" %}
+            <div class="col-md-3 col-6 mt-3">
+                <div class="card card-hover">
+                    {% if doc.icon %}
+                    <img src="{{ doc.icon.url }}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="{{ doc.title }}" />
+                    {% else %}
+                    <img src="{% static 'images-Ai/python.png' %}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="{{ doc.title }}" />
+                    {% endif %}
+                    <div class="card-body bg-dark text-white">
+                        <h5 class="card-title">{{ doc.title }}</h5>
+                        <p class="card-text">{{ doc.description|truncatechars:60 }}.</p>
+                        <a href="{% url 'history_create' %}?link={{ doc.link }}&title={{ doc.title|urlencode }}" target="_blank" class="btn btn-light d-flex justify-content-center">Read</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Frameworks Content -->
+    <div id="frameworks" class="tab-content">
+       
+        <div class="row">
+            {% for doc in documents %}
+            {% if doc.category.name == "Frameworks" %}
+            <div class="col-md-3 col-6 mt-3">
+                <div class="card card-hover">
+                    {% if doc.icon %}
+                    <img src="{{ doc.icon.url }}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="{{ doc.title }}" />
+                    {% else %}
+                    <img src="{% static 'images-Ai/python.png' %}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="{{ doc.title }}" />
+                    {% endif %}
+                    <div class="card-body bg-dark text-white">
+                        <h5 class="card-title">{{ doc.title }}</h5>
+                        <p class="card-text">{{ doc.description|truncatechars:60 }}.</p>
+                        <a href="{% url 'history_create' %}?link={{ doc.link }}&title={{ doc.title|urlencode }}" target="_blank" class="btn btn-light d-flex justify-content-center">Read</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Databases Content -->
+    <div id="databases" class="tab-content">
+        
+        <div class="row">
+            {% for doc in documents %}
+            {% if doc.category.name == "Databases" %}
+            <div class="col-md-3 col-6 mt-3">
+                <div class="card card-hover">
+                    {% if doc.icon %}
+                    <img src="{{ doc.icon.url }}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="{{ doc.title }}" />
+                    {% else %}
+                    <img src="{% static 'images-Ai/python.png' %}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="{{ doc.title }}" />
+                    {% endif %}
+                    <div class="card-body bg-dark text-white">
+                        <h5 class="card-title">{{ doc.title }}</h5>
+                        <p class="card-text">{{ doc.description|truncatechars:60 }}.</p>
+                        <a href="{% url 'history_create' %}?link={{ doc.link }}&title={{ doc.title|urlencode }}" target="_blank" class="btn btn-light d-flex justify-content-center">Read</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Developer Tools Content -->
+    <div id="developer-tools" class="tab-content">
+      
+        <div class="row">
+            {% for doc in documents %}
+            {% if doc.category.name == "Developer Tool" %}
+            <div class="col-md-3 col-6 mt-3">
+                <div class="card card-hover">
+                    {% if doc.icon %}
+                    <img src="{{ doc.icon.url }}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="{{ doc.title }}" />
+                    {% else %}
+                    <img src="{% static 'images-Ai/python.png' %}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="{{ doc.title }}" />
+                    {% endif %}
+                    <div class="card-body bg-dark text-white">
+                        <h5 class="card-title">{{ doc.title }}</h5>
+                        <p class="card-text">{{ doc.description|truncatechars:60 }}.</p>
+                        <a href="{% url 'history_create' %}?link={{ doc.link }}&title={{ doc.title|urlencode }}" target="_blank" class="btn btn-light d-flex justify-content-center">Read</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+<!-- Pagination Controls -->
+<div id="pagination-controls" class="d-flex justify-content-center mt-4"></div>
+
+
+
+{% endblock %}

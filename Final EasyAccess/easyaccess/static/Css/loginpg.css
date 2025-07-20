@@ -1,0 +1,109 @@
+
+  .card {
+    background:rgb(50, 54, 51);
+    border: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    padding: 30px;
+    width: 100%;
+    margin: 20px;
+    color: black;
+  }
+  .card:hover{
+    box-shadow: 0 8px 20px rgb(178, 201, 177);
+  }
+  body{
+    background: #141E30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+  }
+  .login-control {
+    background: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: black;
+    font-size: 1rem;
+  }
+
+  .login-control:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    outline: none;
+  }
+
+  .btn-submit {
+    background: #FF416C;
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    transition: 0.3s;
+  }
+
+  .btn-submit:hover {
+    background: #FF4B2B;
+    box-shadow: 0 4px 15px rgba(255, 75, 43, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .captcha-container img {
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .captcha-container input {
+    margin-top: 10px;
+    border-radius: 15px;
+    padding: 10px;
+    background: white;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  .captcha-container input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    outline: none;
+  }
+
+  .signup-link {
+    color: #FFD700;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .signup-link:hover {
+    color: #FF4B2B;
+    text-decoration: underline;
+  }
+
+  .alert-danger {
+    background: rgba(255, 75, 43, 0.2);
+    color: #FF4B2B;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 15px;
+  }
+  input::placeholder {
+    color:white; /* Gray color */
+     /* Ensure the color is fully visible */
+  }
+  
+  input:focus::placeholder {
+    color: white; /* Change color when the input is focused */
+  }
+

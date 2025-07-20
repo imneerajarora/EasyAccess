@@ -1,0 +1,60 @@
+{% extends "basic.html" %}
+
+{% load static %}
+
+{% block title %}EasyAccess-AITool{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'Css/aitool.css' %}">
+<div class="container-fluid my-2">
+    <div class="row">
+        <hr style="color: white;">
+        <h1 class="my-2 text-center text-white">AI Tools for developers</h1><hr style="color: white;">
+        {% for tool in AITools %}
+        
+        <div class="col-md-3 col-6 mt-4">
+            <div class="card card-hover">
+                {% if tool.icon %}
+                <img src="{{tool.icon.url}}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="{{doc.title}}" />
+                {% else %}
+                <img src="{% static 'images-Ai/python.png' %}" class="card-img-top" style="width: 100%; height: 200px; object-fit: cover;" alt="{{doc.title}}" />
+                {% endif %}
+                <div class="card-body bg-dark text-white bg-dark text-white">
+                    <h5 class="card-title">{{tool.title}}</h5>
+                    <p class="card-text">{{tool.description|truncatechars:50}}.</p>
+                    <a href="{% url 'history_create' %}?link={{tool.link}}&title={{tool.title|urlencode}}" target="_blank" class="btn btn-light d-flex justify-content-center">Use</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="d-flex justify-content-center mt-4 pagination-container">
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                {% if AITools.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ AITools.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+    
+                {% for num in AITools.paginator.page_range %}
+                <li class="page-item {% if num == AITools.number %}active{% endif %}">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+                {% endfor %}
+    
+                {% if AITools.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ AITools.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+      </div>
+      
+{% endblock %}
